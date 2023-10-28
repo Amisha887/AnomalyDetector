@@ -37,7 +37,8 @@ y_pred_outliers=clf.predict(X_outliers)
 
 #append the labels to x_outliers
 X_outliers=X_outliers.assign(pred=y_pred_outliers)
-X_outliers.head()
+X_outliers.head() #table1
+
 p1 = plt.scatter(X_train.x,X_train.y,c="white",s=50,edgecolor="black")
 p2 = plt.scatter(X_outliers.loc[X_outliers.pred==-1,["x"]],X_outliers.loc[X_outliers.pred==-1,["y"]],c="blue",s=50,edgecolor="black", )
 p3 = plt.scatter(X_outliers.loc[X_outliers.pred==1,["x"]],X_outliers.loc[X_outliers.pred==1,["y"]],c="red",s=50,edgecolor="black" ,)
@@ -48,7 +49,7 @@ plt.show()
 
 #now to see its performance on normal testing data, append the predicted label to x_test
 X_test=X_test.assign(pred=y_pred_test)
-X_test.head()
+X_test.head() #table2
 
 #plot the results to see whether our classifier labelled the normal testing data correctly
 p1 = plt.scatter(X_train.x,X_train.y,c="white",s=50,edgecolor="black")
